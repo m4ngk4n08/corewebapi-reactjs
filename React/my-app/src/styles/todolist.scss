@@ -1,0 +1,35 @@
+.todolist-main{
+    display: grid;
+    row-gap: 10px;
+
+    .form-wrapper{
+        display:grid;
+        grid-template-columns: 1fr /*auto*/ 80px;
+        column-gap: 10px;
+    }
+    .table-main{
+        display:grid;
+        grid-template-rows: 50px;
+        grid-auto-rows: 30px;
+        
+        .header-wrapper{
+            border: 1px solid $black-color;
+            display:grid;
+            grid-template-columns: 1fr 170px;
+            place-items: center;
+
+            span{
+                font-weight: bold;
+            }
+        }
+
+        .row-wrapper{
+            display: grid;
+            grid-template-columns: 1fr repeat(2, /* auto */80px);
+            column-gap: 1px;
+        }
+    }
+}
+.btn-main button{
+    margin:3px;
+}
