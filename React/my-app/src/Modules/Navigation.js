@@ -20,8 +20,12 @@ export class Navigation extends Component{
                         Employee
                     </NavLink>
                     <a className="d-inline p-2 bg-dark text-white" href="https://github.com/ArtOfEngineer/ReactJsCoreApi">GitLink</a>
+                    <NavLink className="d-inline p-2 bg-dark text-white" to="/bentumbling">
+                        Bentumbling
+                    </NavLink>
+
                     <NavLink className="d-inline p-2 bg-dark text-white" to="/todolist">
-                        Todo List
+                        Todo-list
                     </NavLink>
                 </Nav>
                 </Navbar.Collapse>

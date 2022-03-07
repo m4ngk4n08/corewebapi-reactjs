@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A9GNvIzUqCDEf9WhCU4zQM5tgLuQgS58i1rEG9bj60cqGkb+R3bG22fPNitfabBuVuYcbSj6qrx1HHBEgqZWmA==",
+  "dgSpecHash": "NceG3gVxjW+vYH2No2iUcL2ZjgxF/C2YAz74N1xDaCfw6lsdf5GjjqgBHskQGe/QpREfZMxieeuLj8wxQbXGBg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Avaaaaaaaa\\source\\repos\\EmployeeApi\\EmployeeApi\\EmployeeApi.csproj",
+  "projectFilePath": "C:\\Users\\Avaaaaaaaa\\source\\repos\\EmployeeApi\\employeeapi\\EmployeeApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Avaaaaaaaa\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\Avaaaaaaaa\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",

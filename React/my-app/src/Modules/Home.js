@@ -1,12 +1,16 @@
-import React,{Component} from 'react';
+import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
-export class Home extends Component{
-
-    render(){
-        return (
-            <div className="mt-5 dflex justify-content-left">
-            This is Home Page. 
-            </div>
-        )
+export default function Home() {
+    const history = useNavigate();
+    const handleOnCLick = () =>{
+        history('/todolist')
     }
+
+    return (
+        <div className="home-main">
+            <h1>Welcome to Home</h1>
+            <button onClick={handleOnCLick}>Click me</button>
+        </div>
+    )
 }

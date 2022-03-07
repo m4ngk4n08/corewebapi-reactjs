@@ -1,40 +1,114 @@
-import React, { useState, useRef, useEffect } from 'react'
-import Todo from './Todo'
+import React, {useState} from 'react'
+import Todoitem from './Todoitem';
 
-
-
-export default function TodoList() {
-  const LOCAL_STORAGE_KEY = 'todoApp.todos'
-  const [todos, setTodos] = useState([]);
-  const todoNameRef = useRef();
-
-  useEffect(()=> {
-  const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-  if(storedTodos) setTodos(storedTodos)
-}, [])
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
-  }, [todos])
-
-
-  function handleAddTodo(e){
-    const name = todoNameRef.current.value
-    if (name === '') return 
-    setTodos(prevTodos => {
-      return [...prevTodos, {id: Math.random(), name: name, complete: false}]
+export default function Todolist(){
+    const [state, setState] = useState({
+        todo: '',
+        todolist: []
     })
-    todoNameRef.current.value = null
-  }
 
-  return (
-    <>
-      <Todo todos={todos} />
+    const[edit, setEdit] = useState({
+        editTodo: '',
+        editIndex: ''
+    })
 
-      <input ref={todoNameRef} type="text" />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear Complete Todo</button>
-      <div>0 left todo</div>
-    </>
-  )
+    const[isUpdate, setIsUpdate] = useState(false)
+
+    const {todo, todolist} = state;
+    const {editTodo, editIndex} = edit;
+
+    function handleOnChange(e){
+        const{name, value} = e.target;
+
+        setState({...state, [name]: value})
+    }
+
+    function handleOnChangeUpdate(e){
+        const{name, value} = e.target;
+
+        setEdit({...edit, [name]: value})
+    }
+    function handlesOnClickEdit(index, value){
+        setIsUpdate(true)
+
+        setEdit({editTodo: value, editIndex: index})
+    }
+    function handlesOnClickCancel(e){
+        setIsUpdate(false)
+    }
+
+    /* CREATE */
+    function createTodo(){
+        let list = todolist;
+        list.push(todo);
+
+        setState({todo: '', todolist: list})
+    }
+
+    /* DELETE */
+    function deleteTodo(index){
+        const list = todolist;
+        list.splice(index, 1)
+
+        setState({todo: '', todolist: list})
+    }
+
+    /* UPDATE */
+    function updateTodo(index){
+        const list = todolist;
+        list[index] = editTodo;
+
+        setState({...state, todolist: list})
+        setIsUpdate(false)
+        setEdit({editTodo: '', editIndex: ''})
+    }
+
+    return(
+        <div className="todolist-main">
+            <div className="form-wrapper">
+                <input 
+                type="text" 
+                name="todo"
+                placeholder="Create Todolist"
+                value={todo}
+                onChange={handleOnChange} />
+                <button onClick={createTodo}>Add</button>
+            </div>
+            <div className="table-main">
+                <div className="header-wrapper">
+                    <span>To do</span>
+                    <span>Action</span>
+                </div>
+                {
+                    todolist.length ?
+                         todolist.map((value, index) => (
+                         <Todoitem 
+                            key={index}
+                            index={index}
+                            value={value}
+                            deleteTodo={deleteTodo}
+                            handlesOnClickEdit={handlesOnClickEdit}
+                         />
+                         
+                         )) : <span>No record found</span>
+                }
+                {
+                    isUpdate ?
+                        <div className="form-wrapper2">
+                            <span>Index: {editIndex}</span>
+                            <input
+                            type="text"
+                            name="editTodo"
+                            placeholder="Update todo"
+                            value={editTodo}
+                            onChange={handleOnChangeUpdate}
+                            />
+                            <button onClick={() => updateTodo(editIndex)}>Update</button>
+                            <button onClick={handlesOnClickCancel}>Cancel</button>
+                        </div> : ''
+                }
+                    
+            </div>
+        </div>
+    )
 }

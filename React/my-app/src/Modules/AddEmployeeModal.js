@@ -39,18 +39,12 @@ export class AddEmployeeModal extends Component{
         .then(res=>res.json())
         .then((result)=>{
             alert(result);
-            console.log(event.target.EmployeeName.value)
-            console.log(event.target.Department.value)
-            console.log(event.target.DateOfJoining.value)
-            console.log(this.photofilename)
+
             console.log("success")
         },
         (error)=>{
             alert('Failed');
-            console.log(event.target.EmployeeName.value)
-            console.log(event.target.Department.value)
-            console.log(event.target.DateOfJoining.value)
-            console.log(this.photofilename)
+       
             console.log("err")
         })
     }
