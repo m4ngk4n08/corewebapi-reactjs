@@ -27,6 +27,9 @@ export class Navigation extends Component{
                     <NavLink className="d-inline p-2 bg-dark text-white" to="/todolist">
                         Todo-list
                     </NavLink>
+                    <NavLink className="d-inline p-2 bg-dark text-white" to="/dummytodolist">
+                        Practice Modules
+                    </NavLink>
                 </Nav>
                 </Navbar.Collapse>
             </Navbar>

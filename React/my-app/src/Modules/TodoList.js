@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Todoitem from './Todoitem';
 
 export default function Todolist(){
-    const [state, setState] = useState({
+    const [todos, setTodo] = useState({
         todo: '',
         todolist: []
     })
@@ -14,13 +14,13 @@ export default function Todolist(){
 
     const[isUpdate, setIsUpdate] = useState(false)
 
-    const {todo, todolist} = state;
+    const {todo, todolist} = todos;
     const {editTodo, editIndex} = edit;
 
     function handleOnChange(e){
         const{name, value} = e.target;
 
-        setState({...state, [name]: value})
+        setTodo({...todos, [name]: value})
     }
 
     function handleOnChangeUpdate(e){
@@ -42,7 +42,7 @@ export default function Todolist(){
         let list = todolist;
         list.push(todo);
 
-        setState({todo: '', todolist: list})
+        setTodo({todo: '', todolist: list})
     }
 
     /* DELETE */
@@ -50,7 +50,7 @@ export default function Todolist(){
         const list = todolist;
         list.splice(index, 1)
 
-        setState({todo: '', todolist: list})
+        setTodo({todo: '', todolist: list})
     }
 
     /* UPDATE */
@@ -58,7 +58,7 @@ export default function Todolist(){
         const list = todolist;
         list[index] = editTodo;
 
-        setState({...state, todolist: list})
+        setTodo({...todos, todolist: list})
         setIsUpdate(false)
         setEdit({editTodo: '', editIndex: ''})
     }

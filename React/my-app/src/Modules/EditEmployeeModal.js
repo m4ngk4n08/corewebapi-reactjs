@@ -117,7 +117,7 @@ export class EditEmployeeModal extends Component{
                                     </Form.Group>
 
                                      <Form.Group controlId="Department">
-                                        <Form.Label>Date Of Joining</Form.Label>
+                                        <Form.Label>department</Form.Label>
                                         <Form.Control as="select" defaultValue={this.props.depmt}>
                                             {this.state.deps.map(dep=>
                                                 <option key={dep.DepartmentId}>{dep.DepartmentName}</option>

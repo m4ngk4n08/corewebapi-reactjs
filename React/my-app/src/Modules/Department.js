@@ -1,9 +1,8 @@
-import react,{Component, useRef} from 'react';
-import {Table} from 'react-bootstrap';
+import { Component } from 'react';
+import { Button, ButtonToolbar, Table } from 'react-bootstrap';
+import { AddDepartmentModal } from './AddDepartmentModal';
+import { EditDepartmentModal } from './EditDepartmentModal';
 
-import {Button, ButtonToolbar} from 'react-bootstrap';
-import {AddDepartmentModal} from './AddDepartmentModal';
-import {EditDepartmentModal} from './EditDepartmentModal';
 
 
 export class Department extends Component{

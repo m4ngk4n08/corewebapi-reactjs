@@ -8,6 +8,7 @@ import Bentumbling  from './Modules/Bentumbling';
 import Todolist from './Modules/Todolist';
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import DummyTodoList from './PracticeModule/DummyTodoList';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
               <Route path='/employee' element={<Employee/>} />
               <Route path='/bentumbling' element={<Bentumbling/>} />
               <Route path='/todolist' element={<Todolist /> } />
+              <Route path='/dummytodolist' element={<DummyTodoList />} />
         </Routes>
     </Router> 
   </div>  
